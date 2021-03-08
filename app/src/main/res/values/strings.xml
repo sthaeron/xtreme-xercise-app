@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Xtreme Xercise App</string>
+    <string name="facebook_app_id">1073491203147749</string>
+    <string name="fb_login_protocol_scheme">fb1073491203147749</string>
 </resources>
