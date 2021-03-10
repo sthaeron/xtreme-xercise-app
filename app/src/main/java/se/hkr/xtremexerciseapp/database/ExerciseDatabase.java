@@ -6,7 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Exercise.class}, version = 1)
+@Database(entities = {Exercise.class}, version = 1, exportSchema = false)
 public abstract class ExerciseDatabase extends RoomDatabase {
 
     public abstract ExerciseDAO exerciseDAO();
@@ -16,8 +16,7 @@ public abstract class ExerciseDatabase extends RoomDatabase {
     public static ExerciseDatabase getDatabaseInstance(Context context) {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(), ExerciseDatabase.class, "EXERCISE_DATABASE")
-                    .allowMainThreadQueries()
-                    .build();
+                    .allowMainThreadQueries().fallbackToDestructiveMigration().build();
         }
         return INSTANCE;
     }
