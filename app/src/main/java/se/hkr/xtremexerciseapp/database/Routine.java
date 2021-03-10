@@ -13,7 +13,8 @@ public class Routine {
     int id;
 
     @ColumnInfo(name = "Exercise_List")
-    List<Exercise> exerciseList = new ArrayList<>();
+    String exerciseList;
+
 
     public int getId() {
         return id;
@@ -23,11 +24,12 @@ public class Routine {
         this.id = id;
     }
 
-    public List<Exercise> getExerciseList() {
+    public String getExerciseList() {
         return exerciseList;
     }
 
-    public void setExerciseList(List<Exercise> exerciseList) {
+    public void setExerciseList(String exerciseList) {
         this.exerciseList = exerciseList;
     }
+
 }

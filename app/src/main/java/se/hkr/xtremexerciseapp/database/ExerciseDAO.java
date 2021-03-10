@@ -29,5 +29,5 @@ public interface ExerciseDAO {
     void deleteRoutine(Routine routine);
 
     @Query("UPDATE Routine SET Exercise_List = :exerciseList WHERE id = :id")
-    void updateExerciseList(int id, List<Exercise> exerciseList);
+    void updateExerciseList(int id, String exerciseList);
 }
