@@ -5,13 +5,25 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import se.hkr.xtremexerciseapp.database.Exercise;
 import se.hkr.xtremexerciseapp.database.ExerciseCategory;
 import se.hkr.xtremexerciseapp.database.ExerciseDatabase;
+
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
     List<Exercise> exerciseList = new ArrayList<>();
     ExerciseDatabase database;
+    private static final String EMAIL = "email";
+    private CallbackManager callbackManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +51,35 @@ public class MainActivity extends AppCompatActivity {
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, exerciseList);
 
         recyclerView.setAdapter(adapter);
+
+        callbackManager = CallbackManager.Factory.create();
+        LoginButton loginButton = findViewById(R.id.login_button);
+
+        loginButton.setReadPermissions(Arrays.asList(EMAIL));
+
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                System.out.println("It worked");
+                System.out.println(loginResult.getAccessToken().getUserId());
+            }
+
+            @Override
+            public void onCancel() {
+                System.out.println("Cancel");
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                System.out.println("Error: " + exception.getMessage());
+            }
+        });
+
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     private void addExercisesToDatabase(){
@@ -166,8 +209,8 @@ public class MainActivity extends AppCompatActivity {
             jumpRope.setInstructions("You jump with the rope in your hands in the tempo of your rope swings, dont jump to high or too quick.\nJump while standing on your toes");
             jumpRope.setVideoURL("https://www.youtube.com/watch?v=u3zgHI8QnqE");
             database.exerciseDAO().insertExercise(jumpRope);
-
             exerciseList.addAll(database.exerciseDAO().getAllExercises());
         }
     }
+
 }
