@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.XtremeXerciseApp">
         <activity android:name=".RoutineActivity"></activity>
-
+        <provider android:authorities="com.facebook.app.FacebookContentProvider{@string/facebook_app_id}"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true"/>
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
