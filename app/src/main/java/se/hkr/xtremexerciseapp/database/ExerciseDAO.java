@@ -19,4 +19,15 @@ public interface ExerciseDAO {
     @Delete
     void deleteExercise(Exercise exercise);
 
+    @Query("SELECT * FROM routine")
+    List<Routine> getAllRoutines();
+
+    @Insert
+    void insertRoutine(Routine... routine);
+
+    @Delete
+    void deleteRoutine(Routine routine);
+
+    @Query("UPDATE Routine SET Exercise_List = :exerciseList WHERE id = :id")
+    void updateExerciseList(int id, List<Exercise> exerciseList);
 }
