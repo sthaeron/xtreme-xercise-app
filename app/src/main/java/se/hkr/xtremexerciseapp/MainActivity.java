@@ -136,6 +136,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        return false;
+    }
+
     private void addExercisesToDatabase(){
         if (exerciseList.isEmpty()) {
             Exercise twoHandedSwing = new Exercise();
