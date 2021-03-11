@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Xtreme Xercise App</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
     <string name="facebook_app_id">1073491203147749</string>
     <string name="fb_login_protocol_scheme">fb1073491203147749</string>
 </resources>

@@ -14,16 +14,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.XtremeXerciseApp">
-        <activity android:name=".DetailedRoutineActivity"></activity>
-        <activity android:name=".AddingRoutineActivity" />
+        android:theme="@style/XtremeTheme">
+        <activity android:name=".AddingRoutineActivity"></activity>
         <activity android:name=".RoutineActivity" />
-
-        <provider
+        <provider android:authorities="com.facebook.app.FacebookContentProvider{@string/facebook_app_id}"
             android:name="com.facebook.FacebookContentProvider"
-            android:authorities="com.facebook.app.FacebookContentProvider{@string/facebook_app_id}"
-            android:exported="true" />
-
+            android:exported="true"/>
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -47,7 +43,11 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+
+
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/XtremeTheme.NoActionBar">>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

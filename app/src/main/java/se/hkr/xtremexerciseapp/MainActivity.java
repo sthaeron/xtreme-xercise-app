@@ -1,7 +1,10 @@
 package se.hkr.xtremexerciseapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import java.security.acl.Group;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -19,15 +23,24 @@ import se.hkr.xtremexerciseapp.adapters.RecyclerViewAdapter;
 import se.hkr.xtremexerciseapp.database.Exercise;
 import se.hkr.xtremexerciseapp.database.ExerciseCategory;
 import se.hkr.xtremexerciseapp.database.ExerciseDatabase;
+import se.hkr.xtremexerciseapp.fragments.AllExercisesFragment;
+import se.hkr.xtremexerciseapp.fragments.BandFragment;
+import se.hkr.xtremexerciseapp.fragments.BodyWeightFragment;
+import se.hkr.xtremexerciseapp.fragments.CardioFragment;
+import se.hkr.xtremexerciseapp.fragments.KettleBellFragment;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.android.material.navigation.NavigationView;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private DrawerLayout drawer;
+    private NavigationView navigationView;
 
     RecyclerView recyclerView;
 
@@ -40,67 +53,92 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = findViewById(R.id.recyclerView);
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        database = ExerciseDatabase.getDatabaseInstance(this);
+        drawer = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
-        exerciseList.addAll(database.exerciseDAO().getAllExercises());
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
 
-        addExercisesToDatabase();
+        navigationView.getMenu().setGroupCheckable(0, true, true);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        if (savedInstanceState == null) {
+            setTitle("All Exercises");
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AllExercisesFragment()).commit();
+            navigationView.getMenu().getItem(0).setChecked(true);
+        }
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, exerciseList);
-        recyclerView.setAdapter(adapter);
-
-        callbackManager = CallbackManager.Factory.create();
-        LoginButton loginButton = findViewById(R.id.login_button);
-
-        loginButton.setReadPermissions(Arrays.asList(EMAIL));
-
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                System.out.println("It worked");
-                System.out.println(loginResult.getAccessToken().getUserId());
-            }
-
-            @Override
-            public void onCancel() {
-                System.out.println("Cancel");
-            }
-
-            @Override
-            public void onError(FacebookException exception) {
-                System.out.println("Error: " + exception.getMessage());
-            }
-        });
 
     }
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-        super.onActivityResult(requestCode, resultCode, data);
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        if (navigationView.getMenu().getItem(0).isChecked()) {
+            navigationView.getMenu().getItem(0).setChecked(false);
+        }
+        if (navigationView.getMenu().getItem(1).isChecked()) {
+            navigationView.getMenu().getItem(1).setChecked(false);
+        }
+        if (navigationView.getMenu().getItem(2).isChecked()) {
+            navigationView.getMenu().getItem(2).setChecked(false);
+        }
+        if (navigationView.getMenu().getItem(3).isChecked()) {
+            navigationView.getMenu().getItem(3).setChecked(false);
+        }
+        if (navigationView.getMenu().getItem(4).isChecked()) {
+            navigationView.getMenu().getItem(4).setChecked(false);
+        }
+
+        switch (item.getItemId()) {
+            case R.id.nav_all_exercises:
+                setTitle("All Exercises");
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AllExercisesFragment()).commit();
+                break;
+            case R.id.nav_kettle_bell:
+                setTitle("Kettle Bell Exercises");
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new KettleBellFragment()).commit();
+                break;
+            case R.id.nav_bodyweight:
+                setTitle("Bodyweight Exercises");
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new BodyWeightFragment()).commit();
+                break;
+            case R.id.nav_band:
+                setTitle("Band Exercises");
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new BandFragment()).commit();
+                break;
+            case R.id.nav_cardio:
+                setTitle("Cardio Exercises");
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CardioFragment()).commit();
+                break;
+        }
+        item.setChecked(true);
+        drawer.closeDrawer(GravityCompat.START);
+        return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.example_menu, menu);
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.drawer_menu, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.item1) {
-            openRoutineActivity();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void openRoutineActivity(){
-        Intent intent = new Intent(this, RoutineActivity.class);
-        startActivity(intent);
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        return false;
     }
 
     private void addExercisesToDatabase(){

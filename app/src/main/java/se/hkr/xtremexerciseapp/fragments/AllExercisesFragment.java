@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,6 +32,10 @@ public class AllExercisesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_exercises, container, false);
 
+        TextView tempText = view.findViewById(R.id.tempText);
+        tempText.setText("All Exercises");
+
+        /*
         // Update sortedExercises list
         database = ExerciseDatabase.getDatabaseInstance(AllExercisesFragment.this.getContext());
         sortedExerciseList.addAll(database.exerciseDAO().getAllExercises());
@@ -41,6 +46,7 @@ public class AllExercisesFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(AllExercisesFragment.this.getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
+         */
 
         return view;
     }

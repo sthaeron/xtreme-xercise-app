@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_all_exercises"
+            android:title="All Exercises"/>
+
+        <item
+            android:id="@+id/nav_kettle_bell"
+            android:title="Kettle Bells"/>
+
+        <item
+            android:id="@+id/nav_bodyweight"
+            android:title="Body Weight"/>
+
+        <item
+            android:id="@+id/nav_band"
+            android:title="Exercise Bands"/>
+
+        <item
+            android:id="@+id/nav_cardio"
+            android:title="Cardio"/>
+
+    </group>
+
+</menu>
