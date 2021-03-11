@@ -28,8 +28,14 @@ public interface ExerciseDAO {
     @Delete
     void deleteRoutine(Routine routine);
 
-    @Query("UPDATE Routine SET Exercise_List = :exerciseList WHERE id = :id")
-    void updateExerciseList(int id, String exerciseList);
+    @Query("UPDATE routine SET Name = :name WHERE id = :id")
+    void updateExerciseName(String name, int id);
+
+    @Query("UPDATE routine SET Description = :description WHERE id = :id")
+    void updateExerciseDescription(String description, int id);
+
+    @Query("UPDATE routine SET Exercise_List = :exercises WHERE id = :id")
+    void updateExerciseListById(String exercises, int id);
 
     // Unsure if this is correct
     @Query("SELECT * FROM exercise WHERE category = :category")

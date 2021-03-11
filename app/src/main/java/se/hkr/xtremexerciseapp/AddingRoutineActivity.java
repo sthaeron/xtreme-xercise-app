@@ -30,7 +30,6 @@ public class AddingRoutineActivity extends AppCompatActivity implements Exercise
     EditText title, description;
     List<String> names = new ArrayList<>();
     Exercises exercisesToSave = new Exercises(names);
-    ExerciseConverter converter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +46,7 @@ public class AddingRoutineActivity extends AppCompatActivity implements Exercise
 
         exerciseList.addAll(database.exerciseDAO().getAllExercises());
 
-        AddingRoutineViewAdapter adapter = new AddingRoutineViewAdapter(this, exerciseList, this);
+        AddingRoutineViewAdapter adapter = new AddingRoutineViewAdapter(this, exerciseList, this, "", 0);
         exerciseRecyclerView.setAdapter(adapter);
         exerciseRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 

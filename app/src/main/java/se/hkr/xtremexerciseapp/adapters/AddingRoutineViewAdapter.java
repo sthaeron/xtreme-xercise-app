@@ -13,12 +13,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import se.hkr.xtremexerciseapp.ExerciseListener;
 import se.hkr.xtremexerciseapp.R;
 import se.hkr.xtremexerciseapp.database.Exercise;
 import se.hkr.xtremexerciseapp.database.ExerciseDatabase;
+import se.hkr.xtremexerciseapp.database.Exercises;
 
 public class AddingRoutineViewAdapter extends RecyclerView.Adapter<AddingRoutineViewAdapter.MyViewHolder> {
 
@@ -27,10 +29,15 @@ public class AddingRoutineViewAdapter extends RecyclerView.Adapter<AddingRoutine
     private ExerciseListener exerciseListener;
     private List<Integer> selectedExercisesID = new ArrayList<>();
 
-    public AddingRoutineViewAdapter(Activity context, List<Exercise> exercises, ExerciseListener exerciseListener){
+    public AddingRoutineViewAdapter(Activity context, List<Exercise> exercises, ExerciseListener exerciseListener, String routineExerciseList, int opt){
         this.context = context;
         this.exercises = exercises;
         this.exerciseListener = exerciseListener;
+        if (opt == 1){
+            //Update routine selection
+            //Register exercisesId into selectedExercisesID
+            addSelectedExercises(routineExerciseList, exercises);
+        }
     }
 
     @NonNull
@@ -86,6 +93,17 @@ public class AddingRoutineViewAdapter extends RecyclerView.Adapter<AddingRoutine
             }
         }
         return selectedExercises;
+    }
+
+    private void addSelectedExercises(String value, List<Exercise> fullExerciseList) {
+        List<String> list = Arrays.asList(value.split("\\s*,\\s*"));
+
+        for (Exercise exercise : fullExerciseList){
+            String name = exercise.getName().toString().trim();
+            if (list.contains(name)){
+                selectedExercisesID.add(exercise.getExerciseId());
+            }
+        }
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
