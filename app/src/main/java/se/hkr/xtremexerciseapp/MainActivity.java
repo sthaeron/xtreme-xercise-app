@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         if (exerciseList.isEmpty()) {
             Exercise twoHandedSwing = new Exercise();
             twoHandedSwing.setName("Two Handed Swing");
-            twoHandedSwing.setCategory(ExerciseCategory.KETTLEBELL);
+            twoHandedSwing.setCategory(ExerciseCategory.KETTLEBELL.toString());
             twoHandedSwing.setImageId(R.drawable.exercise_image_1);
             twoHandedSwing.setDescription("A fundemental kettle bell exercise that affects the lower back, shoulders, gluteusmaximus, hips and hamstrings. This exercise is suited to the beginner level and above.");
             twoHandedSwing.setInstructions("Start by picking up the kettlebell with both of your hands, stand so that the kettlebell can travel safely between your legs.\n You then slightly bend your knees and hinge at the hips, it is very important to keep a straight back.\n You then want to push through with your hips and straighten your legs\n. Bring the kettlebell as far up as you can without using your arms to move it, then swing it back and fourth between your legs.");
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
             Exercise lunges = new Exercise();
             lunges.setName("Lunges");
-            lunges.setCategory(ExerciseCategory.BODYWEIGHT);
+            lunges.setCategory(ExerciseCategory.BODYWEIGHT.toString());
             lunges.setImageId(R.drawable.exercise_image_2);
             lunges.setDescription("A simple leg exercise that works the quadriceps and the glutes.");
             lunges.setInstructions("Start by standing up tall, Step forward with one foot until your leg reaches a 90-degree angle.\nYour rear knee should remain parallel to the ground, lift with your front lunging leg.");
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
             Exercise handToHandSwing = new Exercise();
             handToHandSwing.setName("Hand To Hand Swing");
-            handToHandSwing.setCategory(ExerciseCategory.KETTLEBELL);
+            handToHandSwing.setCategory(ExerciseCategory.KETTLEBELL.toString());
             handToHandSwing.setImageId(R.drawable.exercise_image_3);
             handToHandSwing.setDescription("An advanced kettle bell exercise that involves moving the kettle bell from one hand to another after preforming a swing.");
             handToHandSwing.setInstructions("Start with the kettlebell in one hand.\nBegin the movement by driving your hips back and swinging it between your legs, keeping your chest up.\nThrust your hips forward and using your arm like a pendulum, swing the kettlebell forward.\nWhen the kettlebell is at shoulder height, reach out and switch hands.\nTry to control the kettlebell back down.");
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
 
             Exercise kettlebellClean = new Exercise();
             kettlebellClean.setName("Kettlebell Clean");
-            kettlebellClean.setCategory(ExerciseCategory.KETTLEBELL);
+            kettlebellClean.setCategory(ExerciseCategory.KETTLEBELL.toString());
             kettlebellClean.setImageId(R.drawable.exercise_image_4);
             kettlebellClean.setDescription("The kettle bell clean is great full body exercise that activates most muscles in the body.");
             kettlebellClean.setInstructions("Take the kettlebell from the floor and into the a racked position, on the chest, in one fluid motion.\nThis should be done smoothly and not result in banging the wrist, forearm or chest.");
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
 
             Exercise pushUp = new Exercise();
             pushUp.setName("Push-Up");
-            pushUp.setCategory(ExerciseCategory.BODYWEIGHT);
+            pushUp.setCategory(ExerciseCategory.BODYWEIGHT.toString());
             pushUp.setImageId(R.drawable.exercise_image_5);
             pushUp.setDescription("A simple and good upper body exercise that works the pecs, front delts and the triceps");
             pushUp.setInstructions("Get down on all fours, place your hand shoulder width or slightly broader, Straighten the arms and legs, brace your core, lower yourself untill your chest touches the ground and then push with all your might!\nRemember to keep a straight back  and if your form starts to fail you can do it on your knees.");
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
             Exercise pushUpIntoCleanPress = new Exercise();
             pushUpIntoCleanPress.setName("Push-Up Into Clean And Press");
-            pushUpIntoCleanPress.setCategory(ExerciseCategory.KETTLEBELL);
+            pushUpIntoCleanPress.setCategory(ExerciseCategory.KETTLEBELL.toString());
             pushUpIntoCleanPress.setImageId(R.drawable.exercise_image_6);
             pushUpIntoCleanPress.setDescription("A push up, followed by you jumping up and performing a clean and press.");
             pushUpIntoCleanPress.setInstructions("A normal push-up followed by a kettlebell clean and press.\nHave your feet just over shoulder-width apart.\nBend down into a half-squat.\nKeeping your back neutral.\nHold one arm out for balance.\nGrasp the top of the kettlebell’s handle.\nDrive the kettlebell towards you, keeping your arm tucked in close to your body and your weight on your heels.\nBefore the kettlebell can fulfil the rest of the motion, rotate your arm swiftly through the window of the bell.\nDrive the kettlebell upwards.\nLock-out your arm overhead.");
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
 
             Exercise typeWriterPushUp = new Exercise();
             typeWriterPushUp.setName("TypeWriter Push-Up");
-            typeWriterPushUp.setCategory(ExerciseCategory.BODYWEIGHT);
+            typeWriterPushUp.setCategory(ExerciseCategory.BODYWEIGHT.toString());
             typeWriterPushUp.setImageId(R.drawable.exercise_image_7);
             typeWriterPushUp.setDescription("A more challening variation of the push up.");
             typeWriterPushUp.setInstructions("Start the same way you would a normal push up but instead of pressing once your chest touches the ground you lean onto one side and put all of your weight onto that side, you then keep your chest close too the ground and go from one side to the other, once you have done both go back to the starting position by pressing against the ground");
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
 
             Exercise resistanceBandSquats = new Exercise();
             resistanceBandSquats.setName("Resistance Band Squats");
-            resistanceBandSquats.setCategory(ExerciseCategory.BAND);
+            resistanceBandSquats.setCategory(ExerciseCategory.BAND.toString());
             resistanceBandSquats.setImageId(R.drawable.exercise_image_8);
             resistanceBandSquats.setDescription("Resistance band squat is a lower body exercise that uses the band for extra resistance to strengthen your glutes and legs.");
             resistanceBandSquats.setInstructions("Stand on band with feet shoulder width apart and hold the handles next to your shoulders so the band is behind the back of your arms.\nSlowly sit down and back into squat position keeping abdominals thight and chest lifted.\nPress back up through heels, squeezing glutes.");
@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
 
             Exercise resistanceBandTricepExtension = new Exercise();
             resistanceBandTricepExtension.setName("Resistance Band Tricep Extension");
-            resistanceBandTricepExtension.setCategory(ExerciseCategory.BAND);
+            resistanceBandTricepExtension.setCategory(ExerciseCategory.BAND.toString());
             resistanceBandTricepExtension.setImageId(R.drawable.exercise_image_9);
             resistanceBandTricepExtension.setDescription("Resistance Band Tricep Extesions are an upper body exercise that focus mainly on the triceps.");
             resistanceBandTricepExtension.setInstructions("Stand with one foot slightly in front of the other and place the center of the band under the back foot.\nBring handles together straight up above the top of your head.\nSlowly lower handles behind the back of your head until elbows are bent until 90 degrees, keeping elbows close to the side of your head.\nPress hands back up overhead slowly.");
@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
 
             Exercise planchePushUp = new Exercise();
             planchePushUp.setName("Planche Push-Up");
-            planchePushUp.setCategory(ExerciseCategory.BODYWEIGHT);
+            planchePushUp.setCategory(ExerciseCategory.BODYWEIGHT.toString());
             planchePushUp.setImageId(R.drawable.exercise_image_10);
             planchePushUp.setDescription("A super hard variation of the push up that is only for expert calisthenic practitioners");
             planchePushUp.setInstructions("Lay down on the floor, put your hands by your hips rotate your hands so that the thumb is pointing upwards.\nPush down onto the ground and lean forward, brace your core and lift your legs and at the same time push against the ground and continue to have your feet and legs elevated.");
@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
 
             Exercise resistanceBandLungeWOverheadPress = new Exercise();
             resistanceBandLungeWOverheadPress.setName("Resistance Band Lunge With Overhead Press");
-            resistanceBandLungeWOverheadPress.setCategory(ExerciseCategory.BAND);
+            resistanceBandLungeWOverheadPress.setCategory(ExerciseCategory.BAND.toString());
             resistanceBandLungeWOverheadPress.setImageId(R.drawable.exercise_image_11);
             resistanceBandLungeWOverheadPress.setDescription("Resistance band with lunge with overhead press is an exercise that strengthens the legs, glutes and shoulders as well as engaging the core for stability.");
             resistanceBandLungeWOverheadPress.setInstructions("Place right foot on the center of the band on the floor and hold handles next to shoulders.\nStep your left foot behind you, keeping your heel off the ground.\nLower toward the ground, behind both knees to a 90 degree angle.\nSlowly press back up as you push your arms straight overhead.\nRepeat for desired number and switch legs.");
@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
 
             Exercise hillSprints = new Exercise();
             hillSprints.setName("Hill Sprints");
-            hillSprints.setCategory(ExerciseCategory.CARDIO);
+            hillSprints.setCategory(ExerciseCategory.CARDIO.toString());
             hillSprints.setImageId(R.drawable.exercise_image_12);
             hillSprints.setDescription("You sprint up a hill, it is in the name!");
             hillSprints.setInstructions("You sprint as fast as you can up a hill.");
@@ -216,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
 
             Exercise normalSprints = new Exercise();
             normalSprints.setName("Normal Sprints");
-            normalSprints.setCategory(ExerciseCategory.CARDIO);
+            normalSprints.setCategory(ExerciseCategory.CARDIO.toString());
             normalSprints.setImageId(R.drawable.exercise_image_13);
             normalSprints.setDescription("You sprint on a flat surface.");
             normalSprints.setInstructions("You run as fast as you can on a flat surface, preferably somewhere you know the distance so you can take the time.");
@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
 
             Exercise jumpRope = new Exercise();
             jumpRope.setName("Jump Rope");
-            jumpRope.setCategory(ExerciseCategory.CARDIO);
+            jumpRope.setCategory(ExerciseCategory.CARDIO.toString());
             jumpRope.setImageId(R.drawable.exercise_image_14);
             jumpRope.setDescription("You jump with the rope, good for HIIT(High Intensive Interval Training).");
             jumpRope.setInstructions("You jump with the rope in your hands in the tempo of your rope swings, dont jump to high or too quick.\nJump while standing on your toes");

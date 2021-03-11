@@ -14,7 +14,7 @@ public class Exercise {
     public String name;
 
     @ColumnInfo(name = "Category")
-    public ExerciseCategory category;
+    public String category;
 
     @ColumnInfo(name = "Image_Id")
     public int imageId;
@@ -48,7 +48,7 @@ public class Exercise {
         return category.toString();
     }
 
-    public void setCategory(ExerciseCategory category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 

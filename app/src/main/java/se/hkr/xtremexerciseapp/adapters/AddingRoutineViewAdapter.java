@@ -50,22 +50,22 @@ public class AddingRoutineViewAdapter extends RecyclerView.Adapter<AddingRoutine
         holder.imageView.setImageResource(exercise.imageId);
 
         if (selectedExercisesID.contains(exercise.exerciseId)){
-            holder.cardView.setCardBackgroundColor(R.drawable.selected_exercise);
+            holder.cardView.setBackgroundResource(R.drawable.selected_exercise);
             holder.imageSelected.setVisibility(View.VISIBLE);
         } else{
-            holder.cardView.setCardBackgroundColor(R.drawable.optional_view_bg);
+            holder.cardView.setBackgroundResource(R.drawable.optional_view_bg);
             holder.imageSelected.setVisibility(View.GONE);
         }
         holder.layout.setOnClickListener(v -> {
             if (selectedExercisesID.contains(exercise.exerciseId)){
-                holder.cardView.setCardBackgroundColor(R.drawable.optional_view_bg);
+                holder.cardView.setBackgroundResource(R.drawable.optional_view_bg);
                 holder.imageSelected.setVisibility(View.GONE);
                 selectedExercisesID.remove((Object) exercise.exerciseId);
                 if (getSelectedExercises().size() == 0){
                     exerciseListener.onExerciseSelectedAction(false);
                 }
             } else{
-                holder.cardView.setCardBackgroundColor(R.drawable.selected_exercise);
+                holder.cardView.setBackgroundResource(R.drawable.selected_exercise);
                 holder.imageSelected.setVisibility(View.VISIBLE);
                 selectedExercisesID.add(exercise.exerciseId);
                 exerciseListener.onExerciseSelectedAction(true);
