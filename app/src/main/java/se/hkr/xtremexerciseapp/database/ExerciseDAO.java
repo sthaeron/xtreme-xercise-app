@@ -34,4 +34,7 @@ public interface ExerciseDAO {
     // Unsure if this is correct
     @Query("SELECT * FROM exercise WHERE category = :category")
     List<Exercise> getCategoryExercises(int category);
+
+    @Query("SELECT * FROM Routine WHERE id = :id")
+    Routine getRoutineById(int id);
 }

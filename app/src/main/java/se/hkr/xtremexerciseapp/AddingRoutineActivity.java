@@ -72,7 +72,7 @@ public class AddingRoutineActivity extends AppCompatActivity implements Exercise
                 openMainMenu();
 
             } else{
-                Toast.makeText(this, "Please input a title!", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "Please input a title!", Toast.LENGTH_SHORT).show();
             }
         });
     }

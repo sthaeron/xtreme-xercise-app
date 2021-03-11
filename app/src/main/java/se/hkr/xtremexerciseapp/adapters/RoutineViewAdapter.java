@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import se.hkr.xtremexerciseapp.AddingRoutineActivity;
+import se.hkr.xtremexerciseapp.DetailedRoutineActivity;
+import se.hkr.xtremexerciseapp.MainActivity;
 import se.hkr.xtremexerciseapp.R;
 import se.hkr.xtremexerciseapp.database.Routine;
 
@@ -51,7 +53,9 @@ public class RoutineViewAdapter extends RecyclerView.Adapter<RoutineViewAdapter.
                 context.startActivity(intent);
             } else {
                 //Chose another routine
-
+                Intent intent = new Intent(context, DetailedRoutineActivity.class);
+                intent.putExtra("routineID", routines.get(position).getId());
+                context.startActivity(intent);
             }
         });
     }
