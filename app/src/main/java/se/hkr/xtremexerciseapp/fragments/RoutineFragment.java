@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,6 +31,8 @@ public class RoutineFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_routine, container, false);
 
         // Needs setup
+        TextView tempText = view.findViewById(R.id.tempText);
+        tempText.setText("Routine");
 
         return view;
     }
