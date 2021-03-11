@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,6 +14,8 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import se.hkr.xtremexerciseapp.adapters.RecyclerViewAdapter;
 import se.hkr.xtremexerciseapp.database.Exercise;
 import se.hkr.xtremexerciseapp.database.ExerciseCategory;
 import se.hkr.xtremexerciseapp.database.ExerciseDatabase;
@@ -22,9 +23,6 @@ import se.hkr.xtremexerciseapp.database.ExerciseDatabase;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
-import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
@@ -96,9 +94,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.item1) {
-            
+            openRoutineActivity();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void openRoutineActivity(){
+        Intent intent = new Intent(this, RoutineActivity.class);
+        startActivity(intent);
     }
 
     private void addExercisesToDatabase(){

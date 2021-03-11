@@ -1,7 +1,6 @@
-package se.hkr.xtremexerciseapp;
+package se.hkr.xtremexerciseapp.adapters;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import se.hkr.xtremexerciseapp.R;
 import se.hkr.xtremexerciseapp.database.Exercise;
 import se.hkr.xtremexerciseapp.database.ExerciseDatabase;
 
