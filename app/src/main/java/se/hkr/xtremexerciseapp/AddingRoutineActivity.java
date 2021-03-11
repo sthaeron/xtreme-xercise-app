@@ -82,7 +82,6 @@ public class AddingRoutineActivity extends AppCompatActivity implements Exercise
 
         for (String name :exercisesName)
             value += name + ",";
-
         return value;
     }
 
