@@ -8,16 +8,16 @@ import java.util.List;
 public class ExerciseConverter {
         @TypeConverter
         public Exercises storedStringToExerciseList(String value) {
-            List<String> strings = Arrays.asList(value.split("\\s*,\\s*"));
-            return new Exercises(strings);
+            List<String> list = Arrays.asList(value.split("\\s*,\\s*"));
+            return new Exercises(list);
         }
 
         @TypeConverter
-        public String exerciseListToStoredString(Exercises exercises) {
+        public String exerciseListToStoredString(List<String> exercisesName) {
             String value = "";
 
-            for (String lang :exercises.getExerciseList())
-                value += lang + ",";
+            for (String name :exercisesName)
+                value += name + ",";
 
             return value;
         }
