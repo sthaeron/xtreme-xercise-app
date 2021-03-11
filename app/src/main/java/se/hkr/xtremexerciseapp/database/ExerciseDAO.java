@@ -30,4 +30,8 @@ public interface ExerciseDAO {
 
     @Query("UPDATE Routine SET Exercise_List = :exerciseList WHERE id = :id")
     void updateExerciseList(int id, String exerciseList);
+
+    // Unsure if this is correct
+    @Query("SELECT * FROM exercise WHERE category = :category")
+    List<Exercise> getCategoryExercises(int category);
 }

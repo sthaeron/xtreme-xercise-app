@@ -14,7 +14,11 @@ public class Exercise {
     public String name;
 
     @ColumnInfo(name = "Category")
-    public ExerciseCategory category;
+    public int category;
+    // 1 = kettle bell
+    // 2 = bodyweight
+    // 3 = band
+    // 4 = cardio
 
     @ColumnInfo(name = "Image_Id")
     public int imageId;
@@ -44,11 +48,11 @@ public class Exercise {
         this.name = name;
     }
 
-    public String getCategory() {
-        return category.toString();
+    public int getCategory() {
+        return category;
     }
 
-    public void setCategory(ExerciseCategory category) {
+    public void setCategory(int category) {
         this.category = category;
     }
 
