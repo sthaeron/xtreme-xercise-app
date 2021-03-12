@@ -77,20 +77,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        if (navigationView.getMenu().getItem(0).isChecked()) {
-            navigationView.getMenu().getItem(0).setChecked(false);
-        }
-        if (navigationView.getMenu().getItem(1).isChecked()) {
-            navigationView.getMenu().getItem(1).setChecked(false);
-        }
-        if (navigationView.getMenu().getItem(2).isChecked()) {
-            navigationView.getMenu().getItem(2).setChecked(false);
-        }
-        if (navigationView.getMenu().getItem(3).isChecked()) {
-            navigationView.getMenu().getItem(3).setChecked(false);
-        }
-        if (navigationView.getMenu().getItem(4).isChecked()) {
-            navigationView.getMenu().getItem(4).setChecked(false);
+        int size = navigationView.getMenu().size();
+        for (int i = 0; i < size; i++) {
+            navigationView.getMenu().getItem(i).setChecked(false);
         }
 
         switch (item.getItemId()) {
