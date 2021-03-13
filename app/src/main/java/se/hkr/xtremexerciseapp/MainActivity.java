@@ -28,6 +28,7 @@ import se.hkr.xtremexerciseapp.fragments.BandFragment;
 import se.hkr.xtremexerciseapp.fragments.BodyWeightFragment;
 import se.hkr.xtremexerciseapp.fragments.CardioFragment;
 import se.hkr.xtremexerciseapp.fragments.KettleBellFragment;
+import se.hkr.xtremexerciseapp.fragments.RoutineFragment;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -100,6 +101,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_cardio:
                 setTitle("Cardio Exercises");
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CardioFragment()).commit();
+                break;
+            case R.id.nav_routine:
+                setTitle("Routine");
+                Intent intent = new Intent(this, RoutineActivity.class);
+                startActivity(intent);
                 break;
         }
         item.setChecked(true);

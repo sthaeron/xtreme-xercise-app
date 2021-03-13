@@ -15,8 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/XtremeTheme">
-        <activity android:name=".AddingRoutineActivity"></activity>
-        <activity android:name=".RoutineActivity" />
+        <activity android:name=".AddingRoutineActivity" android:parentActivityName=".RoutineActivity"></activity>
+        <activity android:name=".DetailedRoutineActivity" android:parentActivityName=".RoutineActivity"></activity>
+        <activity android:name=".EditRoutineActivity"></activity>
+        <activity android:name=".RoutineActivity" android:parentActivityName=".MainActivity" />
         <provider android:authorities="com.facebook.app.FacebookContentProvider{@string/facebook_app_id}"
             android:name="com.facebook.FacebookContentProvider"
             android:exported="true"/>
