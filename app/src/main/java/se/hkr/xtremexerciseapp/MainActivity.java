@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
 
     RecyclerView recyclerView;
+    MenuItem selected;
 
     List<Exercise> exerciseList = new ArrayList<>();
     ExerciseDatabase database;
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             setTitle("All Exercises");
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AllExercisesFragment()).commit();
             navigationView.getMenu().getItem(0).setChecked(true);
+            selected = navigationView.getMenu().getItem(0);
         }
 
 
@@ -77,10 +79,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        int size = navigationView.getMenu().size();
-        for (int i = 0; i < size; i++) {
-            navigationView.getMenu().getItem(i).setChecked(false);
-        }
+        selected.setChecked(false);
 
         switch (item.getItemId()) {
             case R.id.nav_all_exercises:
@@ -105,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
         }
         item.setChecked(true);
+        selected = item;
         drawer.closeDrawer(GravityCompat.START);
         return false;
     }
