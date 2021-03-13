@@ -33,21 +33,21 @@ public class BandFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_exercises, container, false);
 
-        TextView tempText = view.findViewById(R.id.tempText);
-        tempText.setText("Band");
+        //TextView tempText = view.findViewById(R.id.tempText);
+        //tempText.setText("Band");
 
-        /*
+
         // Update sortedExercises list
         database = ExerciseDatabase.getDatabaseInstance(BandFragment.this.getContext());
         sortedExerciseList.addAll(database.exerciseDAO().getCategoryExercises(ExerciseCategory.BAND));
 
         // Set up RecyclerView
-        recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView = view.findViewById(R.id.recyclerViewForExercises);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(BandFragment.this.getActivity(), sortedExerciseList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(BandFragment.this.getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
-         */
+
 
         return view;
     }

@@ -32,21 +32,21 @@ public class AllExercisesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_exercises, container, false);
 
-        TextView tempText = view.findViewById(R.id.tempText);
-        tempText.setText("All Exercises");
+        //TextView tempText = view.findViewById(R.id.tempText);
+        //tempText.setText("All Exercises");
 
-        /*
+
         // Update sortedExercises list
         database = ExerciseDatabase.getDatabaseInstance(AllExercisesFragment.this.getContext());
         sortedExerciseList.addAll(database.exerciseDAO().getAllExercises());
 
         // Set up RecyclerView
-        recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView = view.findViewById(R.id.recyclerViewForExercises);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(AllExercisesFragment.this.getActivity(), sortedExerciseList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(AllExercisesFragment.this.getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
-         */
+
 
         return view;
     }

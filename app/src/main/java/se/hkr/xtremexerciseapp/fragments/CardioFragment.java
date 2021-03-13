@@ -33,21 +33,21 @@ public class CardioFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_exercises, container, false);
 
-        TextView tempText = view.findViewById(R.id.tempText);
-        tempText.setText("Cardio");
+        //TextView tempText = view.findViewById(R.id.tempText);
+        //tempText.setText("Cardio");
 
-        /*
+
         // Update sortedExercises list
         database = ExerciseDatabase.getDatabaseInstance(CardioFragment.this.getContext());
         sortedExerciseList.addAll(database.exerciseDAO().getCategoryExercises(ExerciseCategory.CARDIO));
 
         // Set up RecyclerView
-        recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView = view.findViewById(R.id.recyclerViewForExercises);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(CardioFragment.this.getActivity(), sortedExerciseList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(CardioFragment.this.getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
-         */
+
 
         return view;
     }

@@ -1,6 +1,8 @@
 package se.hkr.xtremexerciseapp.adapters;
 
 import android.app.Activity;
+import android.app.AppComponentFactory;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,13 +10,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import se.hkr.xtremexerciseapp.MainActivity;
 import se.hkr.xtremexerciseapp.R;
 import se.hkr.xtremexerciseapp.database.Exercise;
 import se.hkr.xtremexerciseapp.database.ExerciseDatabase;
+import se.hkr.xtremexerciseapp.fragments.AnExerciseFragment;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
 
@@ -42,6 +49,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.nameView.setText(exercise.getName());
         holder.descriptionView.setText(exercise.getDescription());
         holder.imageView.setImageResource(exercise.imageId);
+
+        holder.constraintLayout.setOnClickListener(v -> {
+
+            //Open AnExerciseFragment
+            AnExerciseFragment fragment = new AnExerciseFragment();
+            Bundle b = new Bundle();
+            b.putInt("exerciseID", exercise.exerciseId);
+            fragment.setArguments(b);
+            AppCompatActivity activity = (AppCompatActivity) v.getContext();
+            activity.getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, fragment).commit();
+        });
     }
 
     @Override
@@ -53,12 +72,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         TextView nameView, descriptionView;
         ImageView imageView;
+        ConstraintLayout constraintLayout;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             nameView = itemView.findViewById(R.id.name_view);
             descriptionView = itemView.findViewById(R.id.description_view);
             imageView = itemView.findViewById(R.id.imageView);
+            constraintLayout = itemView.findViewById(R.id.constraint_layout);
         }
     }
 

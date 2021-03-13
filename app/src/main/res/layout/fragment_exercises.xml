@@ -15,4 +15,10 @@
         android:textSize="30sp"
         />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerViewForExercises"
+        tools:listitem="@layout/list_row_main"/>
+
 </RelativeLayout>

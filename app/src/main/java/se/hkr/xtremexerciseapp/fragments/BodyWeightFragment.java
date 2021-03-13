@@ -33,21 +33,21 @@ public class BodyWeightFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_exercises, container, false);
 
-        TextView tempText = view.findViewById(R.id.tempText);
-        tempText.setText("Body Weight");
+        //TextView tempText = view.findViewById(R.id.tempText);
+        //tempText.setText("Body Weight");
 
-        /*
+
         // Update sortedExercises list
         database = ExerciseDatabase.getDatabaseInstance(BodyWeightFragment.this.getContext());
         sortedExerciseList.addAll(database.exerciseDAO().getCategoryExercises(ExerciseCategory.BODYWEIGHT));
 
         // Set up RecyclerView
-        recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView = view.findViewById(R.id.recyclerViewForExercises);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(BodyWeightFragment.this.getActivity(), sortedExerciseList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(BodyWeightFragment.this.getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
-         */
+
 
         return view;
     }
