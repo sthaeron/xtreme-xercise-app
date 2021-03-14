@@ -5,22 +5,16 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import java.security.acl.Group;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import se.hkr.xtremexerciseapp.adapters.RecyclerViewAdapter;
 import se.hkr.xtremexerciseapp.database.Exercise;
 import se.hkr.xtremexerciseapp.database.ExerciseCategory;
 import se.hkr.xtremexerciseapp.database.ExerciseDatabase;
@@ -29,13 +23,8 @@ import se.hkr.xtremexerciseapp.fragments.BandFragment;
 import se.hkr.xtremexerciseapp.fragments.BodyWeightFragment;
 import se.hkr.xtremexerciseapp.fragments.CardioFragment;
 import se.hkr.xtremexerciseapp.fragments.KettleBellFragment;
-import se.hkr.xtremexerciseapp.fragments.RoutineFragment;
 
 import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -90,23 +79,68 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()) {
             case R.id.nav_all_exercises:
                 setTitle("All Exercises");
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AllExercisesFragment()).commit();
+                getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(
+                                R.anim.slide_in,  // enter
+                                R.anim.fade_out,  // exit
+                                R.anim.fade_in,   // popEnter
+                                R.anim.slide_out  // popExit
+                        )
+                        .replace(R.id.fragment_container, new AllExercisesFragment())
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case R.id.nav_kettle_bell:
                 setTitle("Kettle Bell Exercises");
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new KettleBellFragment()).commit();
+                getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(
+                                R.anim.slide_in,  // enter
+                                R.anim.fade_out,  // exit
+                                R.anim.fade_in,   // popEnter
+                                R.anim.slide_out  // popExit
+                        )
+                        .replace(R.id.fragment_container, new KettleBellFragment())
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case R.id.nav_bodyweight:
                 setTitle("Bodyweight Exercises");
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new BodyWeightFragment()).commit();
+                getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(
+                                R.anim.slide_in,  // enter
+                                R.anim.fade_out,  // exit
+                                R.anim.fade_in,   // popEnter
+                                R.anim.slide_out  // popExit
+                        )
+                        .replace(R.id.fragment_container, new BodyWeightFragment())
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case R.id.nav_band:
                 setTitle("Band Exercises");
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new BandFragment()).commit();
+                getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(
+                                R.anim.slide_in,  // enter
+                                R.anim.fade_out,  // exit
+                                R.anim.fade_in,   // popEnter
+                                R.anim.slide_out  // popExit
+                        )
+                        .replace(R.id.fragment_container, new BandFragment())
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case R.id.nav_cardio:
                 setTitle("Cardio Exercises");
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CardioFragment()).commit();
+                getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(
+                                R.anim.slide_in,  // enter
+                                R.anim.fade_out,  // exit
+                                R.anim.fade_in,   // popEnter
+                                R.anim.slide_out  // popExit
+                        )
+                        .replace(R.id.fragment_container, new CardioFragment())
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case R.id.nav_routine:
                 setTitle("Routine");
@@ -122,11 +156,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
+
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
         }
+
     }
 
     @Override

@@ -1,7 +1,6 @@
 package se.hkr.xtremexerciseapp.adapters;
 
 import android.app.Activity;
-import android.app.AppComponentFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,24 +11,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.List;
 
-import se.hkr.xtremexerciseapp.MainActivity;
 import se.hkr.xtremexerciseapp.R;
 import se.hkr.xtremexerciseapp.database.Exercise;
 import se.hkr.xtremexerciseapp.database.ExerciseDatabase;
 import se.hkr.xtremexerciseapp.fragments.AnExerciseFragment;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
+public class SimpleRecyclerViewAdapter extends RecyclerView.Adapter<SimpleRecyclerViewAdapter.MyViewHolder> {
 
     private List<Exercise> exercises;
     private Activity context;
     private ExerciseDatabase database;
 
-    public RecyclerViewAdapter(Activity context, List<Exercise> exercises){
+    public SimpleRecyclerViewAdapter(Activity context, List<Exercise> exercises){
         this.context = context;
         this.exercises = exercises;
     }
@@ -38,7 +37,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.list_row_main, parent, false);
+        View view = inflater.inflate(R.layout.grid_list, parent, false);
         return new MyViewHolder(view);
     }
 
@@ -47,10 +46,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Exercise exercise = exercises.get(position);
 
         holder.nameView.setText(exercise.getName());
-        holder.descriptionView.setText(exercise.getDescription());
         holder.imageView.setImageResource(exercise.imageId);
 
-        holder.constraintLayout.setOnClickListener(v -> {
+        holder.cardView.setOnClickListener(v -> {
 
             //Open AnExerciseFragment
             AnExerciseFragment fragment = new AnExerciseFragment();
@@ -59,7 +57,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             fragment.setArguments(b);
             AppCompatActivity activity = (AppCompatActivity) v.getContext();
             activity.getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
+                    .setCustomAnimations(
+                            R.anim.slide_in,  // enter
+                            R.anim.fade_out,  // exit
+                            R.anim.fade_in,   // popEnter
+                            R.anim.slide_out  // popExit
+                    )
+                    .replace(R.id.fragment_container, fragment)
+                    .addToBackStack(null)
+                    .commit();
         });
     }
 
@@ -70,16 +76,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView nameView, descriptionView;
+        TextView nameView;
         ImageView imageView;
-        ConstraintLayout constraintLayout;
+
+        MaterialCardView cardView;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            nameView = itemView.findViewById(R.id.name_view);
-            descriptionView = itemView.findViewById(R.id.description_view);
-            imageView = itemView.findViewById(R.id.imageView);
-            constraintLayout = itemView.findViewById(R.id.constraint_layout);
+            nameView = itemView.findViewById(R.id.cardTitle);
+            imageView = itemView.findViewById(R.id.cardImage);
+            cardView = itemView.findViewById(R.id.cardView);
         }
     }
 

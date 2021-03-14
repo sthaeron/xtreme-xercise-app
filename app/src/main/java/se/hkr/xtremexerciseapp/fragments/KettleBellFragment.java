@@ -17,6 +17,7 @@ import java.util.List;
 
 import se.hkr.xtremexerciseapp.R;
 import se.hkr.xtremexerciseapp.adapters.RecyclerViewAdapter;
+import se.hkr.xtremexerciseapp.adapters.SimpleRecyclerViewAdapter;
 import se.hkr.xtremexerciseapp.database.Exercise;
 import se.hkr.xtremexerciseapp.database.ExerciseCategory;
 import se.hkr.xtremexerciseapp.database.ExerciseDatabase;
@@ -39,9 +40,8 @@ public class KettleBellFragment extends Fragment {
 
         // Set up RecyclerView
         recyclerView = view.findViewById(R.id.recyclerViewForExercises);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(KettleBellFragment.this.getActivity(), sortedExerciseList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(KettleBellFragment.this.getContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
+        SimpleRecyclerViewAdapter adapter = new SimpleRecyclerViewAdapter(getActivity(), sortedExerciseList);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 
         return view;
