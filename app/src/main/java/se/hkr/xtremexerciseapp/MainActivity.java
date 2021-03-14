@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     MenuItem selected;
 
     List<Exercise> exerciseList = new ArrayList<>();
+    List<Exercise> sortedExerciseList = new ArrayList<>();
     ExerciseDatabase database;
     private static final String EMAIL = "email";
     private CallbackManager callbackManager;
@@ -56,6 +58,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        database = ExerciseDatabase.getDatabaseInstance(this);
+        exerciseList.addAll(database.exerciseDAO().getAllExercises());
+        addExercisesToDatabase();
 
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);

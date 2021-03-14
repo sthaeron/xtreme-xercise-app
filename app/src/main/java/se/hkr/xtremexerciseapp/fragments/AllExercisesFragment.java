@@ -1,6 +1,7 @@
 package se.hkr.xtremexerciseapp.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import se.hkr.xtremexerciseapp.R;
 import se.hkr.xtremexerciseapp.adapters.RecyclerViewAdapter;
@@ -32,12 +34,8 @@ public class AllExercisesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_exercises, container, false);
 
-        //TextView tempText = view.findViewById(R.id.tempText);
-        //tempText.setText("All Exercises");
-
-
         // Update sortedExercises list
-        database = ExerciseDatabase.getDatabaseInstance(AllExercisesFragment.this.getContext());
+        database = ExerciseDatabase.getDatabaseInstance(getContext());
         sortedExerciseList.addAll(database.exerciseDAO().getAllExercises());
 
         // Set up RecyclerView
@@ -47,7 +45,9 @@ public class AllExercisesFragment extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
 
-
         return view;
     }
+
+
+
 }

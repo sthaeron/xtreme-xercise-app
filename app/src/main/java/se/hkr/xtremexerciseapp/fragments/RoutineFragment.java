@@ -36,10 +36,6 @@ public class RoutineFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_routine, container, false);
 
-        // Needs setup
-        //TextView tempText = view.findViewById(R.id.tempText);
-        //tempText.setText("Routine");
-
         routine_recyclerView = view.findViewById(R.id.routine_recyclerView_Frag);
 
         database = ExerciseDatabase.getDatabaseInstance(RoutineFragment.this.getContext());
