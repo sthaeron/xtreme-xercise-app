@@ -36,8 +36,9 @@ public class BandFragment extends Fragment {
 
         // Update sortedExercises list
         database = ExerciseDatabase.getDatabaseInstance(BandFragment.this.getContext());
-        sortedExerciseList.addAll(database.exerciseDAO().getCategoryExercises(ExerciseCategory.BAND));
-
+        if(sortedExerciseList.isEmpty()){
+            sortedExerciseList.addAll(database.exerciseDAO().getCategoryExercises(ExerciseCategory.BAND));
+        }
         // Set up RecyclerView
         recyclerView = view.findViewById(R.id.recyclerViewForExercises);
         SimpleRecyclerViewAdapter adapter = new SimpleRecyclerViewAdapter(getActivity(), sortedExerciseList);

@@ -33,7 +33,9 @@ public class AllExercisesFragment extends Fragment {
 
         // Update sortedExercises list
         database = ExerciseDatabase.getDatabaseInstance(getContext());
-        sortedExerciseList.addAll(database.exerciseDAO().getAllExercises());
+        if(sortedExerciseList.isEmpty()) {
+            sortedExerciseList.addAll(database.exerciseDAO().getAllExercises());
+        }
 
         // Set up RecyclerView
         recyclerView = view.findViewById(R.id.recyclerViewForExercises);

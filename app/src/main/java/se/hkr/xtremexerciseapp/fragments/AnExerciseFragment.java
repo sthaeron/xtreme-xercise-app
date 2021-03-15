@@ -54,7 +54,6 @@ public class AnExerciseFragment extends Fragment {
         instructions.setText(exercise.getInstructions());
 
         videoButton.setOnClickListener(v -> {
-            System.out.println("Tried to open video");
 
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(exercise.getVideoURL()));
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

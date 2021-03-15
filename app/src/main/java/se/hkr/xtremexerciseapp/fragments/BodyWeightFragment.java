@@ -36,7 +36,9 @@ public class BodyWeightFragment extends Fragment {
 
         // Update sortedExercises list
         database = ExerciseDatabase.getDatabaseInstance(BodyWeightFragment.this.getContext());
-        sortedExerciseList.addAll(database.exerciseDAO().getCategoryExercises(ExerciseCategory.BODYWEIGHT));
+        if (sortedExerciseList.isEmpty()) {
+            sortedExerciseList.addAll(database.exerciseDAO().getCategoryExercises(ExerciseCategory.BODYWEIGHT));
+        }
 
         // Set up RecyclerView
         recyclerView = view.findViewById(R.id.recyclerViewForExercises);
