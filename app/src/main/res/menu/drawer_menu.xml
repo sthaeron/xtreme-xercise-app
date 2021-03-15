@@ -25,16 +25,16 @@
             android:id="@+id/nav_cardio"
             android:title="Cardio"/>
 
-        <item android:title="Routines">
-            <menu>
-
-                <item android:id="@+id/nav_routine"
-                    android:title="Your Routines"/>
-
-            </menu>
-        </item>
-
     </group>
+
+    <item android:title="Routines">
+        <menu>
+            <item
+                android:id="@+id/nav_routine"
+                android:title="Your Routines"/>
+
+        </menu>
+    </item>
 
 
 </menu>
