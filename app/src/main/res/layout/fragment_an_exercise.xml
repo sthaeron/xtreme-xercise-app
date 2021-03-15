@@ -60,23 +60,28 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="16dp">
+            android:orientation="vertical"
+            android:gravity="center">
 
             <Button
                 android:id="@+id/video_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Video"
-                android:layout_marginEnd="30dp" />
+                android:text="Video Demonstration"
+                android:layout_marginTop="16dp"/>
 
             <com.facebook.share.widget.ShareButton
                 android:id="@+id/share_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#34408E"
-                android:text="Share"/>
+                android:text="Share Exercise"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"/>
+
         </LinearLayout>
 
     </LinearLayout>

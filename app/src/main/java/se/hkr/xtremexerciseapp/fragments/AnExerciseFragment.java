@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.facebook.share.widget.ShareButton;
@@ -73,4 +72,5 @@ public class AnExerciseFragment extends Fragment {
         fragment.setArguments(b);
         return fragment;
     }
+
 }

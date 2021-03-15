@@ -1,26 +1,20 @@
 package se.hkr.xtremexerciseapp.fragments;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import se.hkr.xtremexerciseapp.R;
-import se.hkr.xtremexerciseapp.adapters.RecyclerViewAdapter;
 import se.hkr.xtremexerciseapp.adapters.SimpleRecyclerViewAdapter;
 import se.hkr.xtremexerciseapp.database.Exercise;
 import se.hkr.xtremexerciseapp.database.ExerciseDatabase;
@@ -45,14 +39,10 @@ public class AllExercisesFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerViewForExercises);
         SimpleRecyclerViewAdapter adapter = new SimpleRecyclerViewAdapter(getActivity(), sortedExerciseList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        // Grid Layout Test
-        //recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         recyclerView.setAdapter(adapter);
 
         return view;
     }
-
 
 
 }
