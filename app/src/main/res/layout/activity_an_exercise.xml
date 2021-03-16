@@ -70,13 +70,13 @@
                     android:text="Video Demonstration"
                     android:layout_marginTop="16dp"/>
 
-                <com.facebook.share.widget.ShareButton
+                <Button
                     android:id="@+id/share_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#34408E"
                     android:text="Share Exercise"
-                    android:layout_marginTop="16dp"/>
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"/>
 
             </LinearLayout>
 

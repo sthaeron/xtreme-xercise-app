@@ -74,6 +74,7 @@ public class AnExerciseFragment extends Fragment {
             shareDialog.show(shareLinkContent, ShareDialog.Mode.AUTOMATIC);
 
         });
+
         videoButton.setOnClickListener(v -> {
 
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(exercise.getVideoURL()));

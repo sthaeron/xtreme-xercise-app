@@ -74,9 +74,9 @@
                 android:id="@+id/share_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#34408E"
                 android:text="Share Exercise"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"/>
 
             <TextView
                 android:layout_width="match_parent"
