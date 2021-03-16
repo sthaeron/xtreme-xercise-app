@@ -8,10 +8,32 @@
     android:background="@drawable/main_background"
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:padding="5dp">
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/edit_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Title"
+        android:inputType="textPersonName"
+        android:maxLength="50"
+        android:textColor="#FDFDFD" />
+
+    <EditText
+        android:id="@+id/edit_description"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Description (Max. 100 Characters)"
+        android:inputType="textPersonName"
+        android:maxLength="100"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textView3"
+        android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update your routine!"
@@ -22,36 +44,15 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         tools:layout_editor_absoluteX="176dp"
         android:id="@+id/edit_recyclerView"
         tools:layout_editor_absoluteY="239dp"
         tools:listitem="@layout/list_optional" />
 
-    <EditText
-        android:id="@+id/edit_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="Title"
-        android:inputType="textPersonName"
-        android:maxLength="50"
-        android:textColor="#FDFDFD" />
-
-    <EditText
-        android:id="@+id/edit_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Description (Max. 100 Characters)"
-        android:inputType="textPersonName"
-        android:maxLength="100"
-        android:textColor="#FFFFFF" />
-
     <Button
         android:id="@+id/update_bt"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Update" />

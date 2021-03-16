@@ -69,7 +69,9 @@ public class AddingRoutineActivity extends AppCompatActivity implements Exercise
                 routine.setExerciseList(str);
                 database.exerciseDAO().insertRoutine(routine);
 
-                openMainMenu();
+                //openMainMenu();
+                Intent intent = new Intent(this, RoutineActivity.class);
+                startActivity(intent);
 
             } else{
                 Toast.makeText(this, "Please input a title!", Toast.LENGTH_SHORT).show();
@@ -94,8 +96,4 @@ public class AddingRoutineActivity extends AppCompatActivity implements Exercise
         }
     }
 
-    private void openMainMenu(){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
 }
