@@ -15,13 +15,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/XtremeTheme">
-        <activity android:name=".AddingRoutineActivity" android:parentActivityName=".RoutineActivity"></activity>
-        <activity android:name=".DetailedRoutineActivity" android:parentActivityName=".RoutineActivity"></activity>
-        <activity android:name=".EditRoutineActivity"></activity>
-        <activity android:name=".RoutineActivity" android:parentActivityName=".MainActivity" />
-        <provider android:authorities="com.facebook.app.FacebookContentProvider{@string/facebook_app_id}"
+        <activity android:name=".AnExerciseActivity"></activity>
+        <activity
+            android:name=".AddingRoutineActivity"
+            android:parentActivityName=".RoutineActivity" />
+        <activity
+            android:name=".DetailedRoutineActivity"
+            android:parentActivityName=".RoutineActivity" />
+        <activity android:name=".EditRoutineActivity" />
+        <activity
+            android:name=".RoutineActivity"
+            android:parentActivityName=".MainActivity" />
+
+        <provider
             android:name="com.facebook.FacebookContentProvider"
-            android:exported="true"/>
+            android:authorities="com.facebook.app.FacebookContentProvider{@string/facebook_app_id}"
+            android:exported="true" />
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -45,8 +55,6 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".MainActivity"
             android:theme="@style/XtremeTheme.NoActionBar">

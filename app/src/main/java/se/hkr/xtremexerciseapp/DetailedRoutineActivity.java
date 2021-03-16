@@ -43,6 +43,7 @@ public class DetailedRoutineActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_routine);
+        setTitle("Your Routine");
 
         exerciseRecyclerView = findViewById(R.id.exercise_recyclerView);
         routineDescription = findViewById(R.id.routine_description);

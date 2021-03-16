@@ -39,6 +39,7 @@ public class EditRoutineActivity extends AppCompatActivity implements ExerciseLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_routine);
+        setTitle("Editing Routine");
 
         editRecyclerView = findViewById(R.id.edit_recyclerView);
         updateButton = findViewById(R.id.update_bt);

@@ -2,6 +2,7 @@ package se.hkr.xtremexerciseapp.adapters;
 
 import android.app.Activity;
 import android.app.AppComponentFactory;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import se.hkr.xtremexerciseapp.AnExerciseActivity;
+import se.hkr.xtremexerciseapp.DetailedRoutineActivity;
 import se.hkr.xtremexerciseapp.MainActivity;
 import se.hkr.xtremexerciseapp.R;
 import se.hkr.xtremexerciseapp.database.Exercise;
@@ -52,14 +55,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.constraintLayout.setOnClickListener(v -> {
 
-            //Open AnExerciseFragment
-            AnExerciseFragment fragment = new AnExerciseFragment();
-            Bundle b = new Bundle();
-            b.putInt("exerciseID", exercise.exerciseId);
-            fragment.setArguments(b);
-            AppCompatActivity activity = (AppCompatActivity) v.getContext();
-            activity.getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
+            Intent intent = new Intent(context, AnExerciseActivity.class);
+            intent.putExtra("exerciseId", exercise.exerciseId);
+            context.startActivity(intent);
+
         });
     }
 

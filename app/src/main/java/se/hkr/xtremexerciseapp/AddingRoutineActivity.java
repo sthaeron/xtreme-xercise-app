@@ -35,6 +35,7 @@ public class AddingRoutineActivity extends AppCompatActivity implements Exercise
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adding_routine);
+        setTitle("Creating a Routine");
 
         title = findViewById(R.id.title_edit_text);
         description = findViewById(R.id.description_edit_text);

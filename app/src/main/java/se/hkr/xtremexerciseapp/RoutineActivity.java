@@ -24,6 +24,7 @@ public class RoutineActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routine);
+        setTitle("Your Routines");
 
         routine_recyclerView = findViewById(R.id.routine_recyclerView);
 
