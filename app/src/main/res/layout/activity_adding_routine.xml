@@ -7,28 +7,11 @@
     tools:context=".AddingRoutineActivity"
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:padding="5dp">
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Choose your exercises!"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginTop="10dp"
-        tools:layout_editor_absoluteX="176dp"
-        android:id="@+id/e_recyclerView"
-        tools:layout_editor_absoluteY="239dp"
-        tools:listitem="@layout/list_optional" />
+    android:padding="16dp">
 
     <EditText
         android:id="@+id/title_edit_text"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -38,6 +21,7 @@
 
     <EditText
         android:id="@+id/description_edit_text"
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -45,9 +29,27 @@
         android:inputType="textPersonName"
         android:maxLength="100" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose your exercises!"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="8dp"
+        tools:layout_editor_absoluteX="176dp"
+        android:id="@+id/e_recyclerView"
+        tools:layout_editor_absoluteY="239dp"
+        tools:listitem="@layout/list_optional" />
+
     <Button
         android:id="@+id/save_bt"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Save" />
