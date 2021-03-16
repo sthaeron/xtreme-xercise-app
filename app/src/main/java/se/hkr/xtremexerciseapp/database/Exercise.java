@@ -31,6 +31,8 @@ public class Exercise {
 
     @ColumnInfo(name = "Video_URL")
     public String videoURL;
+    @ColumnInfo (name = "Image_URL")
+    public String imageURL;
 
     public int getExerciseId() {
         return exerciseId;
@@ -87,4 +89,8 @@ public class Exercise {
     public void setVideoURL(String videoURL) {
         this.videoURL = videoURL;
     }
+
+    public String getImageURL(){ return imageURL;}
+
+    public void setImageURL(String imageURL) { this.imageURL = imageURL; }
 }
