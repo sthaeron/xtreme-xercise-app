@@ -50,4 +50,11 @@ public class RoutineActivity extends AppCompatActivity {
             routineList.addAll(database.exerciseDAO().getAllRoutines());
         }
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 }

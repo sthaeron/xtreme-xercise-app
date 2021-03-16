@@ -126,7 +126,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         selected.setChecked(false);
-
         switch (item.getItemId()) {
             case R.id.nav_all_exercises:
                 setTitle("All Exercises");
@@ -189,13 +188,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .commit();
                 break;
             case R.id.nav_routine:
-                setTitle("Routine");
                 Intent intent = new Intent(this, RoutineActivity.class);
                 startActivity(intent);
                 break;
         }
-        item.setChecked(true);
-        selected = item;
+        if (item.getItemId() != R.id.nav_routine) {
+            item.setChecked(true);
+            selected = item;
+        } else {
+            selected.setChecked(true);
+        }
+
         drawer.closeDrawer(GravityCompat.START);
         return false;
     }
