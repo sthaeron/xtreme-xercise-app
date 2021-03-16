@@ -36,7 +36,9 @@ public class CardioFragment extends Fragment {
 
         // Update sortedExercises list
         database = ExerciseDatabase.getDatabaseInstance(CardioFragment.this.getContext());
-        sortedExerciseList.addAll(database.exerciseDAO().getCategoryExercises(ExerciseCategory.CARDIO));
+        if(sortedExerciseList.isEmpty()) {
+            sortedExerciseList.addAll(database.exerciseDAO().getCategoryExercises(ExerciseCategory.CARDIO));
+        }
 
         // Set up RecyclerView
         recyclerView = view.findViewById(R.id.recyclerViewForExercises);

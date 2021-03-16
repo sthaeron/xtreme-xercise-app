@@ -36,8 +36,9 @@ public class KettleBellFragment extends Fragment {
 
         // Update sortedExercises list
         database = ExerciseDatabase.getDatabaseInstance(KettleBellFragment.this.getContext());
-        sortedExerciseList.addAll(database.exerciseDAO().getCategoryExercises(ExerciseCategory.KETTLEBELL));
-
+        if(sortedExerciseList.isEmpty()) {
+            sortedExerciseList.addAll(database.exerciseDAO().getCategoryExercises(ExerciseCategory.KETTLEBELL));
+        }
         // Set up RecyclerView
         recyclerView = view.findViewById(R.id.recyclerViewForExercises);
         SimpleRecyclerViewAdapter adapter = new SimpleRecyclerViewAdapter(getActivity(), sortedExerciseList);
