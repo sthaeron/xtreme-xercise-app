@@ -31,6 +31,7 @@ public class Exercise {
 
     @ColumnInfo(name = "Video_URL")
     public String videoURL;
+
     @ColumnInfo (name = "Image_URL")
     public String imageURL;
 

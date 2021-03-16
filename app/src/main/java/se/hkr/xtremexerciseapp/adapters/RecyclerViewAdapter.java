@@ -50,7 +50,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Exercise exercise = exercises.get(position);
 
         holder.nameView.setText(exercise.getName());
-        holder.descriptionView.setText(exercise.getDescription());
+        //holder.descriptionView.setText(exercise.getDescription());
         holder.imageView.setImageResource(exercise.imageId);
 
         holder.constraintLayout.setOnClickListener(v -> {
@@ -76,7 +76,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             nameView = itemView.findViewById(R.id.name_view);
-            descriptionView = itemView.findViewById(R.id.description_view);
+            //descriptionView = itemView.findViewById(R.id.description_view);
             imageView = itemView.findViewById(R.id.imageView);
             constraintLayout = itemView.findViewById(R.id.constraint_layout);
         }
